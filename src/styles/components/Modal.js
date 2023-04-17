@@ -11,7 +11,7 @@ const ModalStyles = {
       overlay: {
         bg: "rgba(0, 0, 0, 0.5)",
       },
-      dialogContainer: {  
+      dialogContainer: {
         alignItems: "center",
       },
       header: {
@@ -31,7 +31,6 @@ const ModalStyles = {
         fontSize: "16px",
         lineHeight: "20px",
         letterSpacing: "0.005em",
-        textAlign: "center",
         color: "form.300",
       },
       footer: {
@@ -45,6 +44,8 @@ const ModalStyles = {
         w: "24px",
         top: "24px",
         right: "24px",
+        color: "secondary.400",
+        borderRadius: 0,
       },
     },
   },

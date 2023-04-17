@@ -3,8 +3,6 @@ const SelectStyles = {
   variants: {
     addCommunities: {
       field: {
-        px: "20px",
-        py: "14px",
         height: "52px",
         border: "1.5px solid",
         borderColor: "form.200",
@@ -25,7 +23,9 @@ const SelectStyles = {
         },
 
         "> option": {
+          h: "100px",
           bg: "form.200",
+          color: "primary.100",
         },
       },
     },

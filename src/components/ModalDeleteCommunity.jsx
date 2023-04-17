@@ -16,7 +16,7 @@ export const ModalDeleteCommunity = ({ isOpen, onClose, variant, el, communities
       <ModalOverlay />
       <ModalContent>
         <ModalHeader mb="11px">Remove NFT Community?</ModalHeader>
-        <ModalCloseButton />
+        <ModalCloseButton size="lg" />
         <ModalBody>
           «{el.communitiesLabel}» is used in a ticket tier on sale. If you remove it, the ticket tier will become
           available to anyone

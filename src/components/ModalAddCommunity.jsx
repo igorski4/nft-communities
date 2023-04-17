@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Modal,
@@ -16,18 +16,18 @@ export const ModalAddCommunity = ({ isOpen, onClose, variant, communities, setCo
   const [contractAddress, setContractAddress] = useState("");
   const [communitiesLabel, setCommunitiesLabel] = useState("");
 
-  const resetForm = () => {
+  useEffect(() => {
     setBlockchain("");
     setContractAddress("");
     setCommunitiesLabel("");
-  };
+  }, [isOpen]);
 
   return (
     <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose} variant={variant}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>Add NFT Community</ModalHeader>
-        <ModalCloseButton />
+        <ModalCloseButton size="lg" />
         <ModalBody>
           <FormAddCommunities
             blockchain={blockchain}
@@ -40,15 +40,7 @@ export const ModalAddCommunity = ({ isOpen, onClose, variant, communities, setCo
         </ModalBody>
 
         <ModalFooter>
-          <Button
-            size="md"
-            variant="secondary"
-            w="full"
-            onClick={() => {
-              resetForm();
-              onClose();
-            }}
-          >
+          <Button size="md" variant="secondary" w="full" onClick={onClose}>
             Cancel
           </Button>
           <Button
@@ -57,7 +49,6 @@ export const ModalAddCommunity = ({ isOpen, onClose, variant, communities, setCo
             w="full"
             onClick={() => {
               setCommunities([...communities, { blockchain, contractAddress, communitiesLabel }]);
-              resetForm();
               onClose();
             }}
           >

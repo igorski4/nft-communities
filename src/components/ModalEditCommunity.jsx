@@ -44,8 +44,6 @@ export const ModalEditCommunity = ({ isOpen, onClose, variant, communities, setC
                   return [...acc, { blockchain, contractAddress, communitiesLabel }];
                 }, [])
               );
-              console.log(communities);
-
               onClose();
             }}
           >

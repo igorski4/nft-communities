@@ -1,5 +1,8 @@
-import { Box, FormControl, FormLabel, Input, Select } from "@chakra-ui/react";
+import { Box, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import React from "react";
+import { ArrowSelectIcon } from "./icons/ArrowSelectIcon";
+import { BlockchainIcon } from "./icons/BlockchainIcon";
+import { Select, chakraComponents, useChakraSelectProps } from "chakra-react-select";
 
 export const FormAddCommunities = ({
   blockchain,
@@ -9,20 +12,50 @@ export const FormAddCommunities = ({
   communitiesLabel,
   setCommunitiesLabel,
 }) => {
+  const blockchainOptions = [
+    {
+      value: "polygon",
+      label: "Polygon",
+      icon: <BlockchainIcon type="polygon" mr="8px" />,
+    },
+    {
+      value: "avalanche",
+      label: "Avalanche",
+      icon: <BlockchainIcon type="avalanche" mr="8px" />,
+    },
+  ];
+
+  const selectProps = useChakraSelectProps({
+    value: blockchain,
+    onChange: setBlockchain,
+  });
+
+  const customComponents = {
+    Option: ({ children, ...props }) => (
+      <chakraComponents.Option {...props}>
+        {props.data.icon} {children}
+      </chakraComponents.Option>
+    ),
+    SingleValue: ({ children, ...props }) => (
+      <chakraComponents.SingleValue {...props}>
+        {props.data.icon} {children}
+      </chakraComponents.SingleValue>
+    ),
+  };
+
   return (
-    <FormControl isRequired display="flex" flexDirection="column" rowGap="24px" requiredIndicator={{ color: "gray" }}>
+    <FormControl isRequired display="flex" flexDirection="column" rowGap="24px">
       <Box>
         <FormLabel>Blockchain</FormLabel>
         <Select
-          value={blockchain}
-          onChange={(e) => setBlockchain(e.target.value)}
+          {...selectProps}
+          isSearchable={false}
+          icon={<ArrowSelectIcon />}
+          options={blockchainOptions}
+          components={customComponents}
           placeholder="Select blockchain"
           variant="addCommunities"
-        >
-          <option>Polygon 1</option>
-          <option>Polygon 2</option>
-          <option>Polygon 3</option>
-        </Select>
+        />
       </Box>
       <Box>
         <FormLabel>Contract address</FormLabel>

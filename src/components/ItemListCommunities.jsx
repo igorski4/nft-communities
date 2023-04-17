@@ -8,6 +8,7 @@ import { BodyText } from "./text/BodyText";
 import { CopyIcon } from "./icons/CopyIcon";
 import { ModalDeleteCommunity } from "./ModalDeleteCommunity";
 import { ModalEditCommunity } from "./ModalEditCommunity";
+import { BlockchainIcon } from "./icons/BlockchainIcon";
 
 export const ItemListCommunities = ({ el, communities, setCommunities }) => {
   const { isOpen: isOpenChange, onOpen: onOpenChange, onClose: onCloseChange } = useDisclosure();
@@ -42,7 +43,8 @@ export const ItemListCommunities = ({ el, communities, setCommunities }) => {
           />
         </Flex>
       </Flex>
-      <Flex columnGap="8px">
+      <Flex columnGap="8px" alignItems="center">
+        <BlockchainIcon type={el.blockchain.value} color="gray" />
         <BodyText>{`${el.contractAddress.slice(0, 6)}...${el.contractAddress.slice(-4)}`}</BodyText>
         <CopyIcon
           onClick={() => {

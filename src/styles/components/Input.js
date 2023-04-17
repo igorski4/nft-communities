@@ -3,7 +3,6 @@ const InputStyles = {
   variants: {
     addCommunities: {
       field: {
-        p: "16px",
         pl: "18px",
         height: "52px",
         border: "1.5px solid",
