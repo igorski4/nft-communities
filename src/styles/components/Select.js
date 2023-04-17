@@ -23,6 +23,10 @@ const SelectStyles = {
         _focus: {
           borderColor: "white",
         },
+
+        "> option": {
+          bg: "form.200",
+        },
       },
     },
   },

@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { FormAddCommunities } from "./FormAddCommunities";
 
-export const ModalAddCommunity = ({ isOpen, onClose, variant, communities, add }) => {
+export const ModalAddCommunity = ({ isOpen, onClose, variant, communities, setCommunities }) => {
   const [blockchain, setBlockchain] = useState("");
   const [contractAddress, setContractAddress] = useState("");
   const [communitiesLabel, setCommunitiesLabel] = useState("");
@@ -23,7 +23,7 @@ export const ModalAddCommunity = ({ isOpen, onClose, variant, communities, add }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} variant={variant}>
+    <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose} variant={variant}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>Add NFT Community</ModalHeader>
@@ -56,7 +56,7 @@ export const ModalAddCommunity = ({ isOpen, onClose, variant, communities, add }
             variant="primary"
             w="full"
             onClick={() => {
-              add([...communities, { blockchain, contractAddress, communitiesLabel }]);
+              setCommunities([...communities, { blockchain, contractAddress, communitiesLabel }]);
               resetForm();
               onClose();
             }}

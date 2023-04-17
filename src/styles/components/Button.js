@@ -43,9 +43,6 @@ const ButtonStyles = {
         bg: "primary.200",
       },
     },
-    fill: {
-      w: "100%",
-    },
   },
 };
 

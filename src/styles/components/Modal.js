@@ -4,7 +4,6 @@ const ModalStyles = {
       dialog: {
         m: 0,
         p: "24px",
-        pt: "23.5px",
         w: "440px",
         bg: "dropdown",
         borderRadius: "16px",
@@ -12,10 +11,11 @@ const ModalStyles = {
       overlay: {
         bg: "rgba(0, 0, 0, 0.5)",
       },
-      dialogContainer: {
+      dialogContainer: {  
         alignItems: "center",
       },
       header: {
+        color: "primary.100",
         textAlign: "center",
         fontWeight: 700,
         fontSize: "24px",
@@ -27,6 +27,12 @@ const ModalStyles = {
       body: {
         p: 0,
         mb: "40px",
+        fontWeight: 500,
+        fontSize: "16px",
+        lineHeight: "20px",
+        letterSpacing: "0.005em",
+        textAlign: "center",
+        color: "form.300",
       },
       footer: {
         p: 0,

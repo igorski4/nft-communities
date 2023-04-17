@@ -16,6 +16,8 @@ export const colors = {
     200: "#2B2D31",
     300: "#828690",
   },
-  red: "#FF5454",
+  red: {
+    500: "#FF5454",
+  },
   dropdown: "#1D1E1F",
 };

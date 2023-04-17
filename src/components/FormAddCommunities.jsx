@@ -10,10 +10,11 @@ export const FormAddCommunities = ({
   setCommunitiesLabel,
 }) => {
   return (
-    <FormControl isRequired display="flex" flexDirection="column" rowGap="24px">
+    <FormControl isRequired display="flex" flexDirection="column" rowGap="24px" requiredIndicator={{ color: "gray" }}>
       <Box>
         <FormLabel>Blockchain</FormLabel>
         <Select
+          value={blockchain}
           onChange={(e) => setBlockchain(e.target.value)}
           placeholder="Select blockchain"
           variant="addCommunities"
