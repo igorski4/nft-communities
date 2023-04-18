@@ -10,7 +10,7 @@ To Start Development Server:
 
 `npm start`  
 
-To Stark Fake JSON-Server
+To Stark Fake JSON-Server:
 
 `json-server --watch communities.json --port 3001`
 
