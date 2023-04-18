@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import { FormAddCommunities } from "./FormAddCommunities";
+import { fetcherPatch } from "../api/fetchers";
 
-export const ModalEditCommunity = ({ isOpen, onClose, variant, communities, setCommunities, el }) => {
+export const ModalEditCommunity = ({ isOpen, onClose, variant, el }) => {
   const [blockchain, setBlockchain] = useState("");
   const [contractAddress, setContractAddress] = useState("");
   const [communitiesLabel, setCommunitiesLabel] = useState("");
@@ -38,12 +39,10 @@ export const ModalEditCommunity = ({ isOpen, onClose, variant, communities, setC
             variant="primary"
             w="full"
             onClick={() => {
-              setCommunities(
-                communities.reduce((acc, community) => {
-                  if (community.contractAddress !== el.contractAddress) return [...acc, community];
-                  return [...acc, { blockchain, contractAddress, communitiesLabel }];
-                }, [])
-              );
+              fetcherPatch({
+                url: "/communities",
+                data: { ...el, blockchain: blockchain.value, contractAddress, communitiesLabel },
+              });
               onClose();
             }}
           >

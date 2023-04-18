@@ -10,7 +10,7 @@ import { ModalDeleteCommunity } from "./ModalDeleteCommunity";
 import { ModalEditCommunity } from "./ModalEditCommunity";
 import { BlockchainIcon } from "./icons/BlockchainIcon";
 
-export const ItemListCommunities = ({ el, communities, setCommunities }) => {
+export const ItemListCommunities = ({ el }) => {
   const { isOpen: isOpenChange, onOpen: onOpenChange, onClose: onCloseChange } = useDisclosure();
   const { isOpen: isOpenDelete, onOpen: onOpenDelete, onClose: oncloseDelete } = useDisclosure();
 
@@ -24,27 +24,13 @@ export const ItemListCommunities = ({ el, communities, setCommunities }) => {
         </Flex>
         <Flex columnGap="18px" alignItems="center">
           <ChangerIcon onClick={onOpenChange} />
-          <ModalEditCommunity
-            isOpen={isOpenChange}
-            onClose={onCloseChange}
-            el={el}
-            communities={communities}
-            setCommunities={setCommunities}
-            variant="addCommunity"
-          />
+          <ModalEditCommunity isOpen={isOpenChange} onClose={onCloseChange} el={el} variant="addCommunity" />
           <GarbageIcon onClick={onOpenDelete} />
-          <ModalDeleteCommunity
-            isOpen={isOpenDelete}
-            onClose={oncloseDelete}
-            variant="addCommunity"
-            el={el}
-            communities={communities}
-            setCommunities={setCommunities}
-          />
+          <ModalDeleteCommunity isOpen={isOpenDelete} onClose={oncloseDelete} variant="addCommunity" el={el} />
         </Flex>
       </Flex>
       <Flex columnGap="8px" alignItems="center">
-        <BlockchainIcon type={el.blockchain.value} color="gray" />
+        <BlockchainIcon type={el.blockchain} color="gray" />
         <BodyText>{`${el.contractAddress.slice(0, 6)}...${el.contractAddress.slice(-4)}`}</BodyText>
         <CopyIcon
           onClick={() => {

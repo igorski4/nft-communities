@@ -9,8 +9,9 @@ import {
   ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react";
+import { fetcherDelete } from "../api/fetchers";
 
-export const ModalDeleteCommunity = ({ isOpen, onClose, variant, el, communities, setCommunities }) => {
+export const ModalDeleteCommunity = ({ isOpen, onClose, variant, el }) => {
   return (
     <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose} variant={variant}>
       <ModalOverlay />
@@ -31,7 +32,7 @@ export const ModalDeleteCommunity = ({ isOpen, onClose, variant, el, communities
             variant="primary"
             w="full"
             onClick={() => {
-              setCommunities(communities.filter((community) => community.contractAddress !== el.contractAddress));
+              fetcherDelete({ url: "/communities", id: el.id });
               onClose();
             }}
           >

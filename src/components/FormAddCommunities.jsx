@@ -26,7 +26,7 @@ export const FormAddCommunities = ({
   ];
 
   const selectProps = useChakraSelectProps({
-    value: blockchain,
+    value: blockchainOptions.find((el) => el.value === blockchain),
     onChange: setBlockchain,
   });
 
