@@ -12,6 +12,11 @@ import {
 import { fetcherDelete } from "../api/fetchers";
 
 export const ModalDeleteCommunity = ({ isOpen, onClose, variant, el }) => {
+  const handlerDelete = () => {
+    fetcherDelete({ url: "/communities", id: el.id });
+    onClose();
+  };
+
   return (
     <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose} variant={variant}>
       <ModalOverlay />
@@ -27,15 +32,7 @@ export const ModalDeleteCommunity = ({ isOpen, onClose, variant, el }) => {
           <Button size="md" variant="secondary" w="full" onClick={onClose}>
             Cancel
           </Button>
-          <Button
-            size="md"
-            variant="primary"
-            w="full"
-            onClick={() => {
-              fetcherDelete({ url: "/communities", id: el.id });
-              onClose();
-            }}
-          >
+          <Button size="md" variant="primary" w="full" onClick={handlerDelete}>
             Remove
           </Button>
         </ModalFooter>

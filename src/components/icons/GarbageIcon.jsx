@@ -1,9 +1,9 @@
 import { Icon } from "@chakra-ui/react";
 import React from "react";
 
-export const GarbageIcon = ({ onClick }) => {
+export const GarbageIcon = () => {
   return (
-    <Icon viewBox="0 0 16 19" fill="none" h="18px" w="16px" cursor="pointer" onClick={onClick}>
+    <Icon viewBox="0 0 16 19" fill="none" h="18px" w="16px" cursor="pointer">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

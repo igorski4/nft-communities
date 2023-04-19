@@ -2,15 +2,15 @@
   "communities": [
     {
       "id": "f88e5d7f-0b0f-4921-a19d-ba6f21a7ea50",
-      "blockchain": "polygon",
-      "contractAddress": "0x7243DDF3e3eb797274390F2657Dad7b3617d7011",
+      "blockchain": "avalanche",
+      "contractAddress": "ewe",
       "communitiesLabel": "NFT Owners Planet Oaziz 1"
     },
     {
       "id": "c42708fc-7f82-4da0-b234-f4b5c7cb9f58",
-      "blockchain": "avalanche",
-      "contractAddress": "0x7243DDF3e3eb797274390F2657Dad7b3617d7012",
-      "communitiesLabel": "NFT Owners Planet Oaziz 2"
+      "blockchain": "polygon",
+      "contractAddress": "0x7243DDF3e3eb797274390F2657Dad7b3617d7015",
+      "communitiesLabel": "NFT Owners Planet Oaziz 5"
     },
     {
       "id": "8afd28dc-5b1f-435b-a7bb-a0d941ad1c34",

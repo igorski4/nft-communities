@@ -1,9 +1,9 @@
 import { Icon } from "@chakra-ui/react";
 import React from "react";
 
-export const CopyIcon = ({ onClick }) => {
+export const CopyIcon = () => {
   return (
-    <Icon viewBox="0 0 16 17" fill="none" h="17px" w="16px" cursor="pointer" onClick={onClick}>
+    <Icon viewBox="0 0 16 17" fill="none" h="17px" w="16px" cursor="pointer">
       <g clipPath="url(#clip0_247_305)">
         <path
           fillRule="evenodd"

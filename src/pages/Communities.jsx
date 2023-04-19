@@ -1,11 +1,12 @@
-import { Flex, useDisclosure } from "@chakra-ui/react";
+import { Flex, Spinner, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import { Sidebar } from "../layout/Header/Sidebar";
 import { Header } from "../layout/Header/Header";
 import { useCommunities } from "../api/useCommunities";
 import { ListCommunities } from "../components/ListCommunities";
-import { ModalAddCommunity } from "../components/ModalAddCommunity";
+import { ModalCommunity } from "../components/ModalCommunity";
 import { EmptyListCommunities } from "../components/EmptyListCommunities";
+import { Title5 } from "../components/text/Title5";
 
 export const Communities = () => {
   const { communities, errorCommunities, isLoadingCommunities } = useCommunities();
@@ -20,10 +21,24 @@ export const Communities = () => {
             pageTitle="NFT Communities"
             buttonProps={{ text: "Add NFT Communities", state: communities?.length, handler: onOpen }}
           />
-          {!communities?.length ? <EmptyListCommunities onOpen={onOpen} /> : <ListCommunities />}
+          {!!isLoadingCommunities && (
+            <Flex h="100%" justifyContent="center" alignItems="center">
+              <Spinner color="primary.100" size="lg" />
+            </Flex>
+          )}
+          {!communities?.length ? (
+            <EmptyListCommunities onOpen={onOpen} />
+          ) : (
+            <ListCommunities communities={communities} />
+          )}
+          {!!errorCommunities && (
+            <Title5 textAlign="center" pt="100px">
+              Error! Try again later
+            </Title5>
+          )}
         </Flex>
       </Flex>
-      <ModalAddCommunity isOpen={isOpen} onClose={onClose} variant="addCommunity" />
+      <ModalCommunity isOpen={isOpen} onClose={onClose} variant="addCommunity" />
     </>
   );
 };

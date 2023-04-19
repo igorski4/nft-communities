@@ -1,9 +1,9 @@
 import { Icon } from "@chakra-ui/react";
 import React from "react";
 
-export const ChangerIcon = ({ onClick }) => {
+export const ChangerIcon = () => {
   return (
-    <Icon viewBox="0 0 24 24" fill="none" h="24px" w="24px" cursor="pointer" onClick={onClick}>
+    <Icon viewBox="0 0 24 24" fill="none" h="24px" w="24px" cursor="pointer">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
