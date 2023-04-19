@@ -6,9 +6,13 @@ Installation:
 
 `npm install`    
 
-To Start Server:
+To Start Development Server:
 
 `npm start`  
+
+To Stark Fake JSON-Server:
+
+`json-server --watch communities.json --port 3001`
 
 To Visit App:
 
