@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { Button, Modal, Input, Select, FormLabel } from "./components";
+import { Button, Modal, Input, FormLabel } from "./components";
 import { global } from "./global";
 import { colors } from "./foundations/colors";
 import { fonts } from "./foundations/fonts";
@@ -17,7 +17,7 @@ const components = {
   Button,
   Modal,
   Input,
-  Select,
+
   FormLabel,
 };
 

@@ -14,8 +14,10 @@ import { FormCommunities } from "./FormCommunities";
 import { fetcherPatch, fetcherPost } from "../api/fetchers";
 import { useForm } from "react-hook-form";
 import { BlockchainIcon } from "./icons/BlockchainIcon";
+import { useCommunities } from "../api/useCommunities";
 
 export const ModalCommunity = ({ isOpen, onClose, variant, el }) => {
+  const { communities, mutateCommunities } = useCommunities();
   const blockchainOptions = [
     {
       value: "polygon",
@@ -39,8 +41,8 @@ export const ModalCommunity = ({ isOpen, onClose, variant, el }) => {
 
   const onSubmit = (data) => {
     if (data.type !== "click") {
-      if (!el)
-        fetcherPost({
+      if (!el) {
+        const newCommunities = fetcherPost({
           url: "/communities",
           data: {
             id: uuidv4(),
@@ -49,8 +51,9 @@ export const ModalCommunity = ({ isOpen, onClose, variant, el }) => {
             communitiesLabel: data.communitiesLabel,
           },
         });
-      else
-        fetcherPatch({
+        mutateCommunities({ communities: [...communities, newCommunities] });
+      } else {
+        const patchCommunities = fetcherPatch({
           url: "/communities",
           data: {
             ...el,
@@ -59,6 +62,8 @@ export const ModalCommunity = ({ isOpen, onClose, variant, el }) => {
             communitiesLabel: data.communitiesLabel,
           },
         });
+        mutateCommunities({ communities: [...communities, patchCommunities] });
+      }
       reset();
       onClose();
     }

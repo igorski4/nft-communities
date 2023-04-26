@@ -1,6 +1,6 @@
 import { Button, Flex } from "@chakra-ui/react";
 import React from "react";
-import { Title4 } from "../../components/text/Title4";
+import { Title4 } from "../components/text/Title4";
 
 export const Header = ({ pageTitle, buttonProps }) => {
   return (

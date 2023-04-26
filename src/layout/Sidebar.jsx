@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
-import { BodyText } from "../../components/text/BodyText";
+import { BodyText } from "../components/text/BodyText";
 
 export const Sidebar = () => {
   return (

@@ -18,6 +18,17 @@ export const FormCommunities = ({ register, control, blockchainOptions }) => {
     ),
   };
 
+  const chakraStyles = {
+    menuList: (provided) => ({
+      ...provided,
+      background: "form.200",
+    }),
+    multiValue: (provided, state) => ({
+      ...provided,
+      background: state.isFocused ? "form.300" : "form.200",
+    }),
+  };
+
   return (
     <FormControl isRequired display="flex" flexDirection="column" rowGap="24px">
       <Box>
@@ -28,6 +39,7 @@ export const FormCommunities = ({ register, control, blockchainOptions }) => {
           rules={{ required: true }}
           render={({ field: { onChange, value, name, ref } }) => (
             <Select
+              chakraStyles={chakraStyles}
               name={name}
               ref={ref}
               onChange={onChange}

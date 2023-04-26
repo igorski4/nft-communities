@@ -10,10 +10,14 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 import { fetcherDelete } from "../api/fetchers";
+import { useCommunities } from "../api/useCommunities";
 
 export const ModalDeleteCommunity = ({ isOpen, onClose, variant, el }) => {
+  const { communities, mutateCommunities } = useCommunities();
+
   const handlerDelete = () => {
     fetcherDelete({ url: "/communities", id: el.id });
+    mutateCommunities({ communities: communities.filter((e) => e.id !== el.id) });
     onClose();
   };
 
