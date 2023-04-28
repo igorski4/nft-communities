@@ -23,9 +23,16 @@ export const FormCommunities = ({ register, control, blockchainOptions }) => {
       ...provided,
       background: "form.200",
     }),
-    multiValue: (provided, state) => ({
+    option: (provided, state) => ({
       ...provided,
       background: state.isFocused ? "form.300" : "form.200",
+      color: "white",
+    }),
+    dropdownIndicator: (prev, { selectProps }) => ({
+      ...prev,
+      "> svg": {
+        transform: `rotate(${selectProps.menuIsOpen ? -180 : 0}deg)`,
+      },
     }),
   };
 

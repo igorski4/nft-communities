@@ -8,6 +8,7 @@ export const Container = ({ loading, error, children }) => {
     <Flex h="100%">
       <Sidebar />
       <Flex flexDirection="column" flexGrow={1}>
+        {children}
         {!!loading && (
           <Flex h="100%" justifyContent="center" alignItems="center">
             <Spinner color="primary.100" size="lg" />
@@ -18,7 +19,6 @@ export const Container = ({ loading, error, children }) => {
             Error! Try again later
           </Title5>
         )}
-        {children}
       </Flex>
     </Flex>
   );

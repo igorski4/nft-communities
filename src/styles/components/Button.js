@@ -1,11 +1,16 @@
 const ButtonStyles = {
   baseStyle: {
-    borderRadius: "12px",
+    borderRadius: "10px",
+    border: "1.5px solid",
     fontWeight: 700,
     lineHeight: "20px",
     letterSpacing: "0.02em",
     overflow: "hidden",
     transition: "all 0.2s",
+    _focus: {
+      boxShadow: "none",
+      borderColor: "white",
+    },
   },
   sizes: {
     sm: {
@@ -26,8 +31,6 @@ const ButtonStyles = {
   variants: {
     secondary: {
       bg: "secondary.100",
-      borderRadius: "10px",
-      border: "1.5px solid",
       borderColor: "secondary.300",
       color: "primary.100",
 
@@ -37,10 +40,16 @@ const ButtonStyles = {
     },
     primary: {
       bg: "primary.100",
+      border: "2px solid",
+      borderColor: "white",
       color: "black",
 
       _hover: {
         bg: "primary.200",
+      },
+
+      _focus: {
+        borderColor: "black",
       },
     },
   },

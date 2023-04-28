@@ -46,6 +46,11 @@ const ModalStyles = {
         right: "24px",
         color: "secondary.400",
         borderRadius: 0,
+        _focus: {
+          boxShadow: "none",
+          border: "1.5px solid",
+          borderColor: "white",
+        },
       },
     },
   },
